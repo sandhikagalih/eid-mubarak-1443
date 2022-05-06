@@ -1,0 +1,11 @@
+Model Information:
+* title:	Ketupat
+* source:	https://sketchfab.com/3d-models/ketupat-4b5d89a4ff6b4c9cad44fb529bba8f52
+* author:	Mokokow (https://sketchfab.com/Moko)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Ketupat" (https://sketchfab.com/3d-models/ketupat-4b5d89a4ff6b4c9cad44fb529bba8f52) by Mokokow (https://sketchfab.com/Moko) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

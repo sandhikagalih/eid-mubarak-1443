@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eid Mubarak 1443H</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/output.css" />
+  </head>
+  <body class="bg-green-100 font-poppins">
+    <div class="flex flex-wrap items-center justify-center ml-56 relative">
+      <div class="container max-w-4xl bg-white rounded shadow-xl m-12">
+        <div class="h-96 overflow-hidden rounded-t">
+          <img class="w-full rounded-t -mt-36" src="img/1.jpg" alt="Photo by Simon Infanger on Unsplash" />
+        </div>
+        <div class="flex justify-center px-5 -mt-24 mb-5">
+          <span class="block h-44 w-44">
+            <img class="mx-auto object-cover rounded-full bg-white p-1.5" src="img/sandhika.jpg" alt="Sandhika Galih" />
+          </span>
+        </div>
+        <div class="px-7 mb-8">
+          <h1 class="text-8xl font-bold text-green-800 text-center font-almarai">عيد مبارك</h1>
+          <h2 class="text-5xl mt-8 font-bold text-green-800 text-center">Eid Mubarak</h2>
+          <p class="text-2xl text-center italic text-slate-500 mt-10">May Allah bring us joy, health, happiness, peace and prosperity on this blessed day.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="box absolute -z-10 top-0"></div>
+
+    <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.140.0/build/three.module.js",
+          "controls": "https://unpkg.com/three@0.140.0/examples/jsm/controls/OrbitControls.js",
+          "loader": "https://unpkg.com/three@0.140.0/examples/jsm/loaders/GLTFLoader.js"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import * as THREE from 'three';
+      import { OrbitControls } from 'controls';
+      import { GLTFLoader } from 'loader';
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+      const renderer = new THREE.WebGLRenderer({ alpha: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+
+      const box = document.querySelector('.box');
+      box.appendChild(renderer.domElement);
+
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.enabled = false;
+
+      // const geometry = new THREE.BoxGeometry();
+      // // const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+      // const material = new THREE.MeshLambertMaterial({ color: 0x00ff00 });
+      // const cube = new THREE.Mesh(geometry, material);
+      // scene.add(cube);
+
+      camera.position.z = 5;
+      camera.position.x = 4;
+      camera.position.y = -0.5;
+
+      const ambientLight = new THREE.AmbientLight(0xffffff, 12);
+      scene.add(ambientLight);
+
+      const pointLight = new THREE.PointLight(0xffffff, 1, 100);
+      pointLight.position.set(50, 50, 50);
+      scene.add(pointLight);
+
+      const loader = new GLTFLoader();
+      let ketupat;
+
+      loader.load('ketupat/scene.gltf', function (gltf) {
+        ketupat = gltf.scene;
+        ketupat.scale.set(30, 30, 30);
+        ketupat.rotation.z = 0.3;
+        scene.add(ketupat);
+      });
+
+      function animate() {
+        requestAnimationFrame(animate);
+        if (ketupat) {
+          ketupat.rotation.y += 0.01;
+        }
+
+        // cube.rotation.x += 0.01;
+        // cube.rotation.y += 0.01;
+        // cube.rotation.z += 0.01;
+
+        renderer.render(scene, camera);
+      }
+      animate();
+    </script>
+  </body>
+</html>
